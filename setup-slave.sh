@@ -97,10 +97,18 @@ setup_ebs_volume /dev/sdx /vol5
 setup_ebs_volume /dev/sdy /vol6
 setup_ebs_volume /dev/sdz /vol7
 
+# link vol0 with vol so persistent hdfs runs on ebs vol0.
+if [[ -e /vol ]]; then
+	ln -s /vol3 /vol
+	mkdir /volSuccess
+fi
+
+
 # Alias vol to vol3 for backward compatibility: the old spark-ec2 script supports only attaching
 # one EBS volume at /dev/sdv.
 if [[ -e /vol3 && ! -e /vol ]]; then
   ln -s /vol3 /vol
+  mkdir /volFailure
 fi
 
 # Make data dirs writable by non-root users, such as CDH's hadoop user
