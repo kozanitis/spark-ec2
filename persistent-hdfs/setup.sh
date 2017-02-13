@@ -12,7 +12,7 @@ wait
 
 /root/spark-ec2/copy-dir $PERSISTENT_HDFS/conf
 
-if [[ ! -e /vol/persistent-hdfs/dfs/name ]] ; then
+if [[ ! -e /vol0/persistent-hdfs/dfs/name ]] ; then
   echo "Formatting persistent HDFS namenode..."
   $PERSISTENT_HDFS/bin/hadoop namenode -format
 fi
