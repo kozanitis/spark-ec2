@@ -3,8 +3,8 @@
 EPHEMERAL_HDFS=/root/ephemeral-hdfs
 
 # Set hdfs url to make it easier
-HDFS_URL="hdfs://$PUBLIC_DNS:9000"
-echo "export HDFS_URL=$HDFS_URL" >> ~/.bash_profile
+#HDFS_URL="hdfs://$PUBLIC_DNS:9000"
+#echo "export HDFS_URL=$HDFS_URL" >> ~/.bash_profile
 
 pushd /root/spark-ec2/ephemeral-hdfs > /dev/null
 source ./setup-slave.sh
